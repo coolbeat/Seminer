@@ -1,0 +1,17 @@
+*******************************:
+kotolin＿Firebaseハンズオンセミナー
+*******************************:
+
+kotolin
+http://try.kotlinlang.org/#/Examples/Hello,%20world!/Simplest%20version/Simplest%20version.kt
+
+http://is-tech-labo.com/seminar/kotlin_firebase/#Kotlinを実行環境
+
+キーワード！！！
+Kotlin Sam変換
+onClickListener
+匿名xxを　省略できる・・・・・
+
+bootcampで、windowsを入れているが、
+Android Studioのシミュレータが動かない。エラーになる
+hyperVではなく,シミュレータ関係でエラーになる

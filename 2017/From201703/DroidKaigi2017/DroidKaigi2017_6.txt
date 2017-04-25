@@ -1,0 +1,74 @@
+*****************************************
+* DroidKaigi2017_6.txt
+*****************************************
+テーマ：変更に強いEspressoテストコードを効率良く書こう
+発表者：外山純生 (＠sumio_tym)さん
+NTTソフトウェア株式会社
+
+発表資料
+https://speakerdeck.com/sumio/droidkaigi2017-lets-write-sustainable-espresso-test-rapidly
+
+サンプルコード
+https://github.com/sumio/espresso-sample-for-droidkaigi2017
+
+開けない
+https://goo.gl/sH9eax
+＠sumio_tymさんに聞く
+
+
+・目的
+テスト実施の工数削減
+テストを書くのに頭皮すると目的達成が難しい
+効率的に（楽して）テストを書くことは大切
+
+
+Android Studio 2.2
+Espresso test recorder　はベータ版
+
+・Espresso Test Recorder
+得意なケース・不得意なケースを知る
+　＝＞不得意の場合、手でテストコードかけば良いのか？
+
+・ログインする＝ログインと表示されたボタンをおす
+PgaeObjectDesignパターン
+
+・チートシートは印刷しとくよい
+https://google.github.io/android-testing-support-library/docs/espresso/cheatsheet/index.html
+
+・AsynCtask以外はつらい
+　retorofix ,RxJavaは　Asynctask以外をつかっている
+　idlingResourceも大変
+
+・チェックボックスのチェックされている（画像変化）か判断できない
+・画面(Activity）をまたがるのはテストむかない
+　＝＞画面はActivityであって、Fragmentではに
+
+・Move Line UP
+選択した行をソースコードの上に移動できる
+
+・実演
+RecyleViewの星マークが多くあるので落ちる
+どこのポジションにあるかをライブコーディングで加えていた
+
+・Android studioにメソッド抽出機能がある
+
+・所感
+ベータ版なので、コードの補完が必要
+
+・Espresso-Commons
+として公開している
+
+
+[質問]
+・質問：appiumでDatePickerが大変だった・・・
+　　　　数字をセットすると元にもどる
+　回答：Espressoだと専用のAPIがある
+　　　　レファレンスにpickerActionsがある
+
+・質問：
+　回答：
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

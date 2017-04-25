@@ -1,0 +1,216 @@
+**********************************
+* swift実践入門_0224.txt
+**********************************
+
+『Swift実践入門』各章のみどころ
+各章の説明
+二章　コンパイルエラーになるのか？
+
+三章　制御構文
+if文とguard文の使い分け
+パターンマッチ
+=>最小限しるべきこと
+
+四章　関数
+クロージャ
+
+@escaping属性 @autoclosure属性の必要性
+
+五章 型の構成要素
+
+六章　
+参照型、値型
+
+mutaingメソッド
+Array<Element>型の操作
+
+七章
+プロトコル 型のインターフェース
+
+インターフェースと実装を分ける必要があるのか？
+ある場所もある（ない場所もある）＝＞適材適所
+
+やりたいことは　＝＝　演算子
+数字と文字列の比較は違う
+
+八章
+ジェネリクス
+
+・ジェネリック関数とジェネック型
+・普通の関数と肩の汎用化に型をパラメータ化
+
+１０章　型の設計指針
+
+クラスと構造体の比較
+
+・参照型が起こすバグ
+・値型の欠点を補うコピーオンライト
+
+１１章　イベント通知
+
+デリゲートパターン、オブザーバー
+
+循環参照を避けるにはweakやunowedなどが必要
+
+GCD,Operation、Threadの使い分け
+
+１２章　エラー処理
+
+・Result<T,Error>型のエラー処理
+
+２つの結果を返す場合 flapmapを利用しないとならない。
+
+・try-cahtchの方がらく
+
+fatalerror(_:)関数 (Never型)
+エラーをそりしない代わりに実行時エラー
+
+1４章　
+実践敵なアプリケーションを作成
+
+利用されているもの
+ジェネリクス
+プロトコル
+・・・・
+
+15章
+swiftからObjective-Cを利用する
+swiftの特徴を損なわないようにObjective-Cを書ける
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+『Swift実践入門』制作の舞台裏 - 稲尾 尚徳
+
+制作の舞台裏
+
+WEB+DB　Pressを
+
+・gitHubを利用している
+・md2inao　インデザインに変換するツール
+・レイアウトはinDesign
+・codegen.swift
+コマンド１発で原稿テキストからコードを抽出を抜いてくれる
+
+工数を書けすぎて、
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+『Swift実践入門』書き始め - 西山 勇世 クックパッド
+
+・The swift programingを総なめした
+　最初の印象・・・この言語は難しくない？？
+
+
+適切な選択をしないと信頼性、メンテナンス制の低いコードが
+量産されてしまう
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+実践クライアントサイドSwift 石川 洋資
+
+クライアントサイド・・・・ 
+実践的モデリング（入力フォームと言うエラーの塊）
+
+新規登録 例）
+お名前、E-mail, 都道府県
+
+
+struct FromField{
+	let name: String
+	let valu : value
+
+
+}
+
+・都道府県はStringではないので、Valueで良い？
+
+インタフェースと実装を分ける
+
+protocol FormField{
+	assosciatedtype Value
+
+	var name : String { get }
+	var value : Value { get }
+
+	func validate() throws
+}
+
+フィールドの種類に応じたパラメータの設定が可能
+
+※最大字数のプロパティを持てるのでprotocolにする
+
+
+private StringFormField: FormField{
+	let name: string
+	let value :String
+	let maxCharacorsCount
+
+	func validate() throws{
+	 if value == nill{
+
+	 }
+}
+
+順調？
+
+１）バリデーションを行う
+２）値をとりだす
+
+***
+大切
+***
+良い設計は誤った用法をコンパイルエラーにする
+
+
+protocol FromField{
+	associatedtype Value
+	associatedtype Product
+
+	var name: String { get}
+
+	}
+}
+
+バリデーションと結果の取得が同時になった。
+
+※associatedValueとは
+
+＞話をかえて
+入力フォーム！
+
+name: try nameFIeld.buildProduct()
+※ tryは何？
+
+都道府県未選択エラーで、都道府県の選択画面にエスコートしている
+
+enumとswichの網羅性が強力。
+
+struct SignupForm: Form{
+	enum FieldID{
+	case name:
+	case emai
+	}
+}
+
+protocol Form {
+	associatedTyped FieldID
+
+	func buidProduct() 
+}
+
+大切なのは、使用用途が違うのはコンパイルエラーに
+
+Haskell
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+実践サーバーサイドSwift - Yuki Takei
+
+・iosライブライブラリがそのまま利用できる
+・コマンドライン、Xcodeで環境ができる
+
+swift package manager
+
+ubuntsで動くことを最優先に
+swift公式サポートはubunts
+
+prorsum(プローサム向け)
+
+
+

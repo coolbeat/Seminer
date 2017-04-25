@@ -1,0 +1,47 @@
+********************************
+fastlane_0221
+********************************:
+
+fastlane
+ビルドから配布まで
+
+・fastlaneの導入のメリット
+
+何が変わるのか？
+
+＞配布
+fastlane gym
+fastlane crashlytics
+
+＞申請用アップロード
+fastlane pilot
+(testFright用)
+fastlane gym
+fastlane delever
+スクリーンショット、キーワード、ipadに
+申請用アップロードまで出来る
+
+＞申請情報の入力
+fastlane delever
+
+>snapshot
+UITestを組み込む必要がある
+
+>
+github => CircleCi =>fastlane => Quick
+							 => fablic
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+自社でfastLaneを導入した方の説明
+
+導入の経緯
+GHE
+＝＞GitHubEnterprize 
+
+clashlytics
+
+注目！！
+https://github.com/nerd0geek1/fastlane-study-vol1
+https://speakerdeck.com/rbde0/fastlanefalseshi-purodakutohefalsedao-ru-li-tosuo-gan
+
+

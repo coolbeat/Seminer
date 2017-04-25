@@ -1,0 +1,105 @@
+*****************************
+* CA.apk
+*****************************
+■shared Element Transition
+マテリアルデザインのガイドラインに載っている
+APi level21から使える
+
+・レイアウトで問題があった
+NavigationBarに重なってしまう。
+statusvar,navigationvarも追加してあげる
+
+・アニメーション終わったときのコールバック
+transition.TransitionLisnerを使う
+
+・インターポレーター
+動きの割合を決める
+Elastic　Out・・・ゼリーっぽい動き
+Interpolator , FastOutSlowInInterporator?
+
+・ViewPagerをつかうときのお話
+Viewの入れ替え
+SharedElementCallBack.onMapSharedEmements()
+アニメーションが呼ばれる前に呼ばれる
+
+・OnPreDrawLinstener.onPreDraw
+描画のタイミングをはかる
+
+
+ここ勉強しないと
+https://developer.android.com/training/material/animations.html
+
+---------------------------------------
+■１年半でプロジェクトでkotoline
+
+FreshはKotorlinで利用されている
+Kotolinよりも前にFreshが先にリリース
+
+◎Kotolinを使うメリット
+・コード量が減る
+　※for文が一切使わなくても書ける
+
+・拡張関数便利
+　run,let,applyが使われる
+[個人感想]みにくい
+
+・swiftがなんとかわかる
+・コードの意図が伝わる
+・アプリがCrashしない
+　fabric,crashlytics
+
+◎Kotolinを使うデメリット
+・メソッド数が微妙に増える
+・人材の流動性
+ kotolinだからなー
+
+[わからんキーワード]
+Dagger
+カプと？
+
+---------------------------------------
+■クリーンアーキテクチャベースでAndroidアプリを作成
+　AmeStage芸能人と遊べるサービス
+
+Viewモデルを利用している。RXjavaを利用している
+
+振り返り
+・きれいに書ける
+・テストが書きやすい
+
+・コード量が大変
+・GitHubでのWikiで共有
+
+期間が長い案件だと良い
+
+---------------------------------------
+■トルテにおける新規Androidアプリの技術選定について
+
+◎設計
+＞重要視したこと　
+　・初めてでも理解しやすいこと
+　・構成がわかりやすい
+　・スケールしやすい
+
+Fluxを選定
+
+「flux de Relax」
+
+◎CI
+bitriz＋fastlane
+データの流れを
+サークルCIは4キロメモリ問題
+
+fastlane
+テスト実行とslack通知
+
+◎テスト
+Robolectrict+ mockito
+
+◎API
+Apiary　アピアリー？
+APIドキュメント作成ツール
+ドキュメントはAPI BluePrintで記述
+マークダウンを拡張した記述
+
+---------------------------------------

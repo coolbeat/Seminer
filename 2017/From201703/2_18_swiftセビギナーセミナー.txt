@@ -1,0 +1,64 @@
+******************************
+: 2_18_swiftセビギナーセミナー
+******************************
+
+隣の席：亀山さん、新人採用
+前の席：かつえさん
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+＊初めてのiosアプリ
+
+after effect packetアニメーション
+写真を歪める
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+＊指の動きや遷移時のアニメーション活かしたUIのサンプル
+
+アニメーション
+kingfisher 画像のURLから非同期での画像表示とキャッシュサポート
+
+API
+楽天レシピカテゴリAPI
+
+UILongPressGestureRecognizer
+
+遷移
+CustomTransition
+ios7からはじる
+
+アニメーションは
+２つのContainerView 
+
+発表者のQuita
+http://qiita.com/fumiyasac@github/items/6c4c2b909a821932be04
+http://qiita.com/fumiyasac@github/items/eb5b17ab90f5aa27b793
+http://qiita.com/fumiyasac@github/items/2490990be4c011935368
+
+
+別物
+発見　Quita見ていて
+http://qiita.com/tomoima525/items/0584be581a0d3a4db8c5
+
+デザインｎ
+http://qiita.com/sho5nn/items/3a2293e3549ba698a71c
+
+UIを検索
+http://qiita.com/tags/UI/likes?page=5
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+・画像の素材
+photoshop element で加工してプログラム内で利用している
+
+・音
+魔王魂、ポケットサウンド
+＝＞利用規約に注意している
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ViewControllerの単体テスト
+
+https://speakerdeck.com/luinily/clean-swift
+
+
+次回4/8
+

@@ -1,0 +1,96 @@
+*****************************************
+* DroidKaigi2017_5.txt
+*****************************************
+テーマ：実践アニメーション
+発表者：湯上なおやさん
+実装経験:7年目
+
+株式会社セブンティー二・オリジナル
+GAMMA!という漫画のアプリの開発をしている
+
+[サンプルコード]
+サンプルコードがgitHubにある
+
+どうやって作るべき？
+
+・Animation 関連のAPI
+　＝＞Animationクラス
+　＝＞Transition Animation
+  ＝＞Property Animation
+
+
+複雑なアニメーションを実装する際に
+どういうアプローチが存在するのか紹介
+
+１）Viewのアニメーションの基礎
+
+・基本的なアニメーション
+Transition
+　view.animate().transiationX.
+scale
+ view.animate().scaleX(2.0f)
+Rotation
+Alpha
+view.animate().alpha(0f).start
+
+・Material Deaignからのアニメーション事情
+＞静的な視覚効果を表現する
+＞ユーザーアクションへのフィードバックが重要
+->Ripple Effect,Transition Animation
+
+・今時のアプリのデザインを考えると
+　・シンプルアニメーションでは不足、ものたりない
+
+3)どうやってとりくむか
+3-1）複数の要素を組み合わせる
+
+res/animatorにAnimatorSetのリソースを作る
+他のViewにも使いまわせる
+
+  ＝＞複雑になると読みづらい！！
+  ＝＞typoが怖い
+  ＝＞上記の理由で一度作成したリソースが改修しにくい
+
+3-2)
+AnimatedVectorDrawableの作り方
+
+vector画像を一つにすることでリソースファイル１つで良い
+最近サポートライブラリに追加された
+
+ObjectAnimatorをつかってVectorDrawer
+
+ツール！！プレビュー版
+Android iCon Animator
+
+・VectorDrowableに対応した
+アニメーションアイコンを手軽に作成出来る
+
+・素晴らしいのは作成したものを
+  ・リソースXMLが吐き出せる
+　・プレビュー版なので、よくなっていくかも
+　・アニメーションが多くなるとむずかしい
+
+3-3)
+コードで実装する
+
+ValueAnimator
+・Api　Level　１１から利用できる
+・ObjectAnimatorの継承元
+・複数のプロパティを持たせることも可能
+
+例）
+ValueAnimator animator = new ValueAnimator()
+animator.setFloatValue(100f)
+animator.setDuration(ANIMATION_DURATION)
+animator.setInterpolator(new AcceleratorDecelerateInterpolator)
+
+[質問タイム]
+質問：Animationの実装で困っていたこと、カスタムバーグループ
+　　　で下からくると縦が縮まり、テキストがちじまってしまう・・・
+回答：むずかしい・・・
+
+質問：
+回答：
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

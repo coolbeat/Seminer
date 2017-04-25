@@ -1,0 +1,78 @@
+*****************************************
+* DroidKaigi2017_8.txt
+*****************************************
+テーマ：How to remodel current testing environment
+発表者：red_fat_daruma さん
+
+テストを精神的保険とする開発
+
+■手法
+・Test　Driven　Development
+テストを満たす実装
+ユニットテストがとおる
+合意がとられるまでリファクター
+・段階受け入れテストを用いた開発
+・仕様と同等なテスtお
+Behavior Driven Development
+
+■
+Model
+抽象により知りエアた側面や声質を持つ構造・外観
+Remodeling
+既存モデルを変更により、目的のモデルを得ること
+＞リファクタリングではない
+
+テストの信頼度控除油
+テストの負債（めんどくさい）の返上
+
+Remodelingのステップ
+１．現存するテストの理解・掌握
+
+
+テストポリシー
+＞プロジェクトにおけるテストの意味・役割
+テストストラテジー
+＞ポリシーに元にしたテスト作成・実行に必要な要件
+
+
+・TestSize
+testing.googleblog.com/2010/12/test-sizes.html
+＝＞クックパッド社も記載している
+
+happy Path test?
+リリース時のHappy Path
+
+・Mock-able
+test Doubleの思想
+モヒートとか利用すると
+Dummy,Fack,Stub,Spy,Mock
+
+・Mockitは
+mockとSpｙの利用が多い
+上記２つの意味をしり、テストに意味を持たせる
+
+
+２．目的モデルの選定
+Unit test
+Groovy＋　RoboSpock
+
+※RoboSpocｋ
+BDDの導入ができる
+PowerAsertが可能
+
+今後
+Robolectricの排除
+　OpenSTFを使う（移行中）
+
+
+[質問]
+
+・質問：Appiumの選択の検討はしたか？
+　回答：他の人が利用して辛かった
+
+・質問：
+　回答：
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

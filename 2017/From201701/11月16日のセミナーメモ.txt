@@ -1,0 +1,87 @@
+11月16日のセミナーメモ
+
+hiNative
+
+ネイティブの方が教えてくれる
+
+・VIPERモデル
+
+
+MVC
+controllerに集中
+
+MVVM
+モデルレイヤーの規定されていない
+遷移ロジックは明確ではない
+
+
+・UIStoryBoarSegue
+http://www.slideshare.net/taketo1024/ios-48549753
+
+・アプリのKPI
+analytics
+mixpanel
+
+・slackのボットを作成した　KPiROcket
+https://kpirocket.io
+slack Bot
+for Google Analytics KPi
+
+
+・StringとNSStringが違うのか？
+Nsstring=> utf16
+String　内部の隠蔽
+粗基礎クラスタ
+
+NSstring でつくって、NSRengeで扱う
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+・GAテクノロジー
+不動産会社がIT化した
+renosy
+リノベーションアプリ
+
+・クソコード
+・Cocoapods管理下のソースコードの上書き
+　pods インストール
+
+＞リーダブルコードの本を読め
+
+swiftyに書き換える
+
+>Stringly 
+
+R.swift?
+
+>MVCだとFAT
+MVVMに分割するとテストしやすくなる
+
+>selector /delegate
+clousureに置き換える
+
+keyboardWillApper/Hideは置き換えが難しい
+
+>
+*****************************************************
+ライブラリでスターを686?にらったライブラリ
+
+[ライブラリ]
+View2viewTransition
+https://github.com/naru-jpn/View2ViewTransition
+
+CocoaControls
+
+＞gitHubTrending
+一週間にスターの数があるライブラリのランキング
+
+＞株式会社Timers
+
+*****************************************************
+
+
+
+
+
+
+
+

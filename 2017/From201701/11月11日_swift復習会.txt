@@ -1,0 +1,52 @@
+クラスは参照型
+構造体は値型
+
+
+クラスは状態を制御するもの
+データ型は普通　構造体で作る
+
+構造体はデータを表すもの
+その中で　mutating とnonmutatingがある
+
+
+クラスには mutaiting　キーワードがない
+
+クラスと構造体の使い分けは、
+・参照型、値型
+・mutaiing,nonmutaiting
+
+
+配列で
+中でバッファーのポインタだけを
+
+
+クラスは8バイト
+構造体は、定義された分だけ必要
+
+
+まるっと値を表現するのだったら、構造体
+データ型を作るのに向いている
+
+
+列挙型は、構造体と同じ値型
+																				
+
+swift programing guid のp10の
+print(statistics.sum)の箇所の確認
+
+
+■The swift programing
+型明記しない
+初期値は型推論をする
+
+
+let view:UIView = UILabel()
+let view = NSTextField() as NSView
+
+
+
+構造体の初期化はイニシャライザーを使う
+
+
+
+

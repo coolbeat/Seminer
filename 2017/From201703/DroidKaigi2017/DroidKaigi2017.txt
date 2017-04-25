@@ -1,0 +1,171 @@
+*****************************************
+* DroidKaigi2017.txt
+*****************************************
+テーマ：逆引きマテリアルデザイン
+
+発表者は荒木さん
+
+https://mareial.io
+
+・動画は、afterEffectで作成した動画
+
+https://material.io/guidelines
+
+・作りたいUI,UXをガイドラインの上に作るのが良い
+　＝＞ガイドラインは絶対従わないとならにものではない
+
+https://material.io/guidelines/material-design/whats-new.html
+https://material.io/jp/ (日本語版がある)
+
+・TypeGraphyに
+英語、日本語はどんなフォントをつかった方がよいか記載がある
+
+・Responsive UI
+
+はにくらさん
+
+・FloatingActionButton（Fab)
+
+Fabについて
+ライブラリに出来ないこともある
+・主要なアクションに使う
+　ナビゲーションに使わない
+・下の要素を塞がないようにする
+
+
+・Components
+  Glid list
+
+  <Framelayout
+
+   android:foregroud:
+    "?attr/selecctablleItemBagground"
+
+タッチフィードバックあると　タッチしたときに
+UIアクションがある波紋がひろがる
+
+LinearLayoutにタッチフィードバックがる
+forgroundViewというサードパーティのライブラリがある
+
+・Patterns Lanch screens
+Viewが出すまでに時間がかかる場合、
+ブランディングの画像を表示する
+
+plus.google.com/+/AndroidDevelopers/posts/ZIWwainpjhd
+
+・ここからはカスタマイズする話
+どうやってFabをカスタマイズるするか？
+＝＞スタイルとテーマを理解する
+
+　　[疑問]
+　　＝＞@style/foobarと?attr/foobarはどういう意味
+　　＝＞スタイルとテーマはどう違う
+　　＝＞FAVの色はどこからきているのか？
+
+・themes.xmlとstyle.xmlの定義はAndroidでは一緒
+使い方が違うだけ
+
+　＝＞themesの使い方が違う　
+   android:layout_height="?attr?actonBarsizse"
+    現在利用しているテーマのactionBarSizeの値をとってくる指定になる
+
+・例）入力ボックスのエラー文字列の色を変更したい
+
+エラーのテキスト色をカスタマイズする
+TextInputLayoutのリファレンスを見る
+[方法]errorTextApperarance
+
+rramework/support/design/values/styles.xml
+@color/design.error
+
+自分のアプリでは下記のように利用する
+
+<style name  "Theme.MyApp"
+
+・・・省略
+<item name="textColorError>"dd"<item>
+
+
+■アニメーション
+Material desi
+複数の要素がどういつの空間に存在してはならない
+
+被らないようにする方法
+app:layout:do
+app:layout_insetEdhi="bottom"
+
+・Coordinatelayoutを利用する
+
+Components -BOttom sheets
+
+・去年のDroidKaigiで
+りてりあ？
+
+
+・Transforming material--------------
+
+画面を縮尺させるアニメーション
+１） ViewProertyAnimation?
+ View animate
+
+２） objectAnimatorを利用する
+
+上記で、
+アニメーション中から逆回転しだすと複雑になる
+同対応する？
+
+API 19
+Animatorに基づいた高レベルAPI
+TransitionApi
+画面を切り替えるだけではない！！！
+
+TransitionManager changeBounds =  new Changebounds()
+TransitionManger.beginDelayedTransiton(root,changeBounds)
+
+changeBoundは前後の変化の状態をもつ
+
+様々なTransition(changeBounds以外のアニメーション)
+changeScroll
+cnageTransForm
+Explode　＜＝中心点から消える？拡がる？
+
+・Transitioin APIの中に
+PathMotion
+孤にそって動かせる
+
+[質問タイム]-------------------------------
+Q Transition APi　バックポート　
+APIレベル14までサポートしている
+
+PathMotion、TransitionPropagationはロリポップから
+＝＞今作成されている
+＝＞SharedElementTransitionはちょっと送れる
+
+・アニメーションいれすぎて、うざったくなる場合
+＝＞ディレーションをいくつにしましょうとガイドラインがある
+
+・Fragmentの中にFragment　、NetedFragment の動きがわるい
+＝＞APIの
+
+
+・b.anroid.com
+バグ報告、機能要望はこちらかあ
+
+APIレベル２５
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

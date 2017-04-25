@@ -1,0 +1,177 @@
+*********************************
+* Kyobashi swift x Akiba.swift
+*********************************
+■　Migration to Swift
+
+convert機能は、Xcode8.2から対応している
+Testが一番大変。
+
+ビルドが通ったけど、実機でうごかしたけど
+本当に動くの？というところ
+全画面チェックはした！
+発表者のアプリはボリュームが少なかった
+
+工数：40時間
+当初の見積もりよりは、少ない
+
+------------------------------------
+■Shari　について
+GMO pepeo社　minneアプリ
+
+UI Componentで公開している
+UIPickerを利用していてストレスを感じる
+
+UIPercentDrivenInteractiveTransition
+UIviewControlleranimatorTransition
+上記試したが、途中の操作ができないことが問題
+
+解決：コンテナビューのTransitionを利用した
+
+
+------------------------------------
+■いまさら聞けない structとclass
+
+swiftは、objective-c に比べると
+構造体が強化されている。
+
+struct ・・値型,
+
+standard libraryでstructで定義されているケースが
+多い。
+
+switch instance{
+	case is Data:
+	useStruct()
+	case is Object:
+	useClase
+}
+
+クラス
+代入時にデータのコピーとして代入されるのがおかしい　 
+同一比較====
+delegate
+classの中にstructを利用する
+
+view controller ,モデルもクラスになる
+残りのプレイヤーもクラス
+Structで定義されているのはプレイヤーのステータス
+
+------------------------------------
+■既存プロジェクトにキャッチアップするためのTips
+
+SwinJect
+
+メルカリアプリ 4年
+US向けにを中心に新しい実装や変更がもっと必要
+
+サンプル　github
+switWeather
+
+Debug view Hierarchyが便利
+
+git blame履歴
+長押しするとコミット履歴が見れる
+＝＞Xcodeの比較ボタンを長押しする
+
+speakerdeck.om
+LLDBコマンド
+Json pretty
+
+ターミナルに貼り付けて実行ができる！
+jsonの内容が見れる
+
+チーム内に
+slacｋに貼り付けて実行を促せる
+
+------------------------------------
+■swift ABI
+Manifestoを読む
+
+applicaton binary interfaceのドキュメントを
+読んでまとめたと言う内容
+
+swiftの４からABIが安定化する
+
+swift3のABIをベースに安定するのではなく、
+swift4からABIを安定化させてくようだ
+
+------------------------------------
+■RX swiftの依存
+
+従来からReactiveな書き方
+モデルとUIの動機を考える
+
+本当にそれだけでいいの？RXswift
+
+RXswiftに慣れてきて
+コードみたときにReactiveに書きたくなる
+書くべきだと思ってしまう。
+
+依存してよいかどうか？
+
+・RXswiftで困るケース
+swiftのバージョンが上がった場合
+Rxswiftのメンテがされていない
+既存プロジェクトでRXだけしか使えないケース
+
+ViewはRxの依存度を下げよう
+RXは強力
+
+------------------------------------
+■FBSSnapshotTestCase
+
+swiftject
+Bolts swift
+Clean Swift
+
+facebook/ios-snapshot-test-case
+
+Nimble-Snapshots
+
+ViewとViweControllerに適応できる
+
+github
+yutu/screenshot
+
+Ossに依存しないテストが×
+XCOdeカバレッジ
+
+なぜ、どこまでテスト書くかを意識する
+
+------------------------------------
+■
+アプリ　Next
+プレゼンテーションを遠隔地から送れる
+
+■Yahoo Hack Day
+２４時間で何か作る
+
+発表時間は90秒
+
+ブックカバーにつけるIOTがある
+Google Book APi
+
+なぜ、
+
+Yahoo Hack Day展示会
+3/20
+
+------------------------------------
+■
+UI scrollview
+zoom contentモードだけでは駄目
+contentsCaleFactorは小さいズームだったらOKだけど
+ズームを大きくするとメモリで落ちる
+
+Dammy Scroll Viewを利用する
+
+オープンソース
+Pnanorama
+
+OpenGlとMetalはスクロールViewに入らない
+相性が悪い
+
+Dummy Content Viewの考え方を利用するとうまくいく
+
+オープンソース
+ShilverShadowを公開

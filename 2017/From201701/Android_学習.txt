@@ -1,0 +1,8 @@
+[Android]学習
+
+CoordinateLayoutk,tab,snackbar
+https://tech.recruit-mp.co.jp/design/post-5165/
+
+
+デザイン
+http://b-risk.jp/blog/2016/02/android_design/

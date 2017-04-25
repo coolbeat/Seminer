@@ -1,0 +1,30 @@
+0221_のfasltセミナー行ってわかったこと.txt
+
+fastlaneと入力するとどれを実行できるか選択できる
+
+例）
+n-ozawa711-no-MacBook-Air:XctestSecond n_ozawa711$ fastlane
+[20:44:39]: -------------------------------------------------
+[20:44:39]: --- Step: Verifying required fastlane version ---
+[20:44:39]: -------------------------------------------------
+[20:44:39]: Your fastlane version 2.17.1 matches the minimum requirement of 1.106.1  ✅
+[20:44:39]: ------------------------------
+[20:44:39]: --- Step: default_platform ---
+[20:44:39]: ------------------------------
+[20:44:39]: Welcome to fastlane! Here's what your app is setup to do:
++--------+-------------+----------------------------------------------------+
+|                          Available lanes to run                           |
++--------+-------------+----------------------------------------------------+
+| Number | Lane Name   | Description                                        |
++--------+-------------+----------------------------------------------------+
+| 1      | ios test    | Runs all the tests                                 |
+| 2      | ios beta    | Submit a new Beta Build to Apple TestFlight        |
+|        |             | This will also make sure the profile is up to date |
+| 3      | ios release | Deploy a new version to the App Store              |
+| 0      | cancel      | No selection, exit fastlane!                       |
++--------+-------------+----------------------------------------------------+
+Which number would you like run?
+1
+
+
+

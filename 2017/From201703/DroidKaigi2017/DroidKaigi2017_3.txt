@@ -1,0 +1,28 @@
+*****************************************
+* DroidKaigi2017_3.txt
+*****************************************
+テーマ：インスペクションとAndroid Lint Custom Ruleによる単一責任原則の実施
+発表者：
+
+cch-robo/Android_Lint_SPR_Practice_Example
+
+JavaPsiSanner,JavaElemetVision
+
+@cch_tono
+
+
+cleanCodeアジャイルソフトウェアの達人・・・　本
+10章クラス
+
+フロー手続きからオブジェクト視点から考える
+
+Android Lint Cutome Rule
+作成の基礎
+
+資料みればできる
+https://www.slideshare.net/cch-robo/android-lintsrppractice
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

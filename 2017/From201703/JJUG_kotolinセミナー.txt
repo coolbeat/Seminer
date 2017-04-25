@@ -1,0 +1,86 @@
+********************************
+* [JJUG]kotolinセミナー
+********************************
+
+
+「クラスの作り方に見るKotlinの表現力」長澤 太郎 @ngsw_taro
+
+
+half.denomiator
+プロパティにアクセス
+
+
+※ストリングテンプレートという機能
+overide fun toString(): String
+= "${}/${}"
+
+
+※イニシャライザ
+init{
+	if(denominatitor == 0){
+	 throw IllegalArgumentException("セロはだめ")
+	}
+
+	上記の別解　以下の書き方ができる
+	require(denominator != 0 )　
+}
+
+
+※再起呼び出しができる
+trailrec private func god(x: Int , y:Int ) : Int = 
+if(y==o ) x
+else god(y,x %b)
+}
+
+
+※演算子オーバーロード
+
+operator fun plus(r: Rational) : Rational = 
+
+Rational{
+ numerator = r.denominator + r.numerator + denoinator
+ ・・・・	
+}
+
+※拡張関数
+
+operator fun Int.times(R: Rational) Rational = 
+Rational(r.numerator *this,r.denominator)
+
+}
+
+
+抽象クラス
+abstract class Node<out T>{
+abstract val value:T
+abstract val next : Node<T>
+}
+
+※out Tの部分　java では<? extends T>
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+Spark Framework
+
+Freshというサービスを開発している。
+
+amazon web service 
+
+＊go言語のつらいとこ
+ジェネリクス、例外ない　コード量が多い
+
+・Spark frameworkとは
+ミニマムなjava８ののフレームワーク
+apach sparkとは別
+Lamda四季を利用
+
+Routing/Filter 最低限の機能　DIと無い
+
+・Spark Framework with kotolin
+Spring のようにintegrationが充実しているわけではない。
+相性の悪さだったりする
+
+
+
+
+

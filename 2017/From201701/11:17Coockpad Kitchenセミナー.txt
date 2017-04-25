@@ -1,0 +1,93 @@
+11/17　Coockpad Kitchenセミナー
+
+講演：クックパッド＋マネーフォワードさん
+
+■iosアプリケーションの海外展開
+
+WEB+DB　PRESS シリーズ
+swift実践入門　１月末に出版
+
+
+言語をユーザーに選択させる
+どの言語圏の料理を見たいかUIにした
+
+ユーザーの言語予測
+
+simの情報（Simから国コードを取る）
+デバイスの情報の言語
+
+
+ログインは、facebookとgoogleでのログイン
+
+＞RTL対応
+
+ヘブライ語　右から左に流れる言語
+.Leading ,.Trailingの方向で決まる
+
+自前でviewを反転させる
+
+
+GitHub　flowで運用
+常にリリースできない。
+xliff形式ファイルにして
+Oneskyで翻訳できる
+
+
+■トクバイ新アプリとswift
+
+トクバイ
+・・・楽しい買い物を増やす iosアプリ
+
+
+・モバイルエンジニアのミッション
+MVC->MVVMモデルに変更
+
+・MVVM
+モデルマネージャー
+APIコール、キャッシュ、状態管理
+
+・Swift + Rxswift + MVVM
+実例
+ViewController
+ViewModelをバインディング
+
+
+RX.swiftのオブザーバーで受け取る
+
+複数のリクエストをまとめれrる
+
+■iosのCleanArticture
+
+http://qiita.com/koutalou/items/07a4f9cf51a2d13e4cdc
+
+MVVM ,DDDがあるが
+
+結局、実際どうするんだっけ？
+
+builder (場合にonfiguretorと呼ばれる)
+
+
+
+■マネーフォワードの変遷と
+パートナー企業版への展開
+
+家計簿のアプリを作成している
+
+
+■QAタイム
+CleanArctectureをプロダクトを
+
+＞メリット
+メンテナンス性がよい
+
+＞
+
+
+■フォロー
+
+
+
+
+
+
+

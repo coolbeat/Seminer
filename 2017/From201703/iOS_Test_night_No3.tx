@@ -1,0 +1,247 @@
+**************************************
+*　iOS_Test_night_No3
+**************************************
+テーマ：初めてのQuickで初めてのテスト
+登壇者：田中賢治
+会社名：クラスメソッド
+
+・Qiuck/Nimbleとは
+Swift/objective-Cと同じテストフレームワーク
+NimbleはMathherフレームワーウAssertionが良い感じ
+
+・Specの基本
+descrive("テストする内容"){
+	context("どんな場合"){
+		it("保存したデータ名がTestListであること"){
+
+			 let expectClosure = {
+			 	let realm = try! Realm()
+
+			 }
+		}
+	}
+}
+
+
+・Realｍの保存
+＞FavoriteListとうRealmObjectの保存処理テスト
+
+Realm.Confuigureattion.defaultfiguration.inMemoryIdentifier
+＝＞実際データを変更せずにテストができる
+
+・まとめ・感想
+　そのコードで何をさせたいかが明瞭になる
+　Quickで読みやすく、Nimbleで書きやすい
+　処理の妥当、考慮の足りない箇所がないか？わかるようになる
+
+
+
+~~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：ViewController ⇄ Presenter by RxSwift
+登壇者：
+会社名
+
+ViewControllerの説明
+>画面表示やユーザーのタッチイベントなどをEventをpresenter
+
+Presenter説明
+実際のコード（RXswiftのコード）
+
+RxTestというテストフレームワークがある
+
+まとめ
+Viewの描画などに依存しないシンプルなイベント・・・
+
+
+~~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：開発を効率化するテストのデザインパターン
+登壇者：Kuniwak　さん
+会社名:
+
+kuniwak
+
+１）型による防御
+semanticType
+
+文字列が何を意味しているのか
+間違った処理を書きづらい
+
+・RegistrationTokenパターン
+必要な事前の処理
+
+
+２）テスト容易設計
+ViewControllerFactory
+
+3)MVのモデルの網羅テストは難しい
+modelの状態遷移を制限
+
+3)テストの構造化
+テストが増えるにつれ、テスト自体の保守性が重要になる
+
+類似したテストケースが多い場合のパターン
+
+promissed file test
+非同期テストは読みづらい
+Promiseのデザインパターンによるテスト＝＞iosでも使いたい
+
+
+4)デバッグの効率化
+
+Diff assersion
+MirrorDiffKit
+
+
+おすすめの本
+xUnit test Patterns
+
+
+・キーワード
+E2Eテスト
+
+
+~~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：What is FBSimulatorControl
+登壇者：shingo_tamaki_948　さん
+会社名 :origami
+
+複数のシミュレータを同時に管理可能となるライブラリ
+FBSimulatorControl
+
+・simCtl
+　　Xcodeにはいっている標準のCLIツール
+　　＝＞昨日Quitaに記載されている
+　　「simctlコマンドをつかってみる」
+
+　　・アプリのインストール/アンインストール
+　　・ペースとボード
+
+　　　　画面起動した試す
+　　　　open -a "Simulator" --args ・・・・・
+
+・fbsimCtl
+ ライブラリとして提供されている
+ ・set_locatioｎのいち情報の登録
+ ・list_apps シミュレータの一覧をみる
+
+
+チェインでつなげて、3、４台続けてテストができる
+
+
+・launch_xcTest
+・listen
+
+
+
+
+~~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：Bluepillを使ったiOS自動テストの並列化！
+登壇者：平田敏ゆき　さん
+会社名：DENA
+SWET (SoftWare Engneer in Test)
+
+
+自動テストを導入して苦労する点
+・テストの実行時間
+　iosシミュレータの不安定さｎ
+
+https://www.infoq.com/jp/news/2017/01/linkedin-bluepill-ios-testing
+
+・BluePil
+  iosシミュレータのを使って自動テスト実行可能にしてくれるもの
+
+ 何が嬉しいの？
+
+ iosシミュレt−たを複数実行しテストを並列実行できる
+ 　テストケースを分割して実行してくれる
+ 許容リトライ数やタイムアウトなど色々と設定できる
+　XCUIテストは対象外（だった？）　＜＝確認
+
+
+そんなに並列化する必要があるのか？
+　テスト数が多いと実行時間が悩みのタネ
+
+テストの数がすくないうちから使う必要があるか
+テストの待機時間やリトライ数などを設定できるだけでなく、
+junit形式でテスト結果をだせるのでさいしょから使っても効果がある
+＝＞jenkinsになる
+
+
+~~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：5分でわかる! AWS Device Farmでテストしよう！
+登壇者：
+会社名：
+
+テストするのにテスト端末を容易しないとならない
+テスト工数がかかる
+
+Deivice Farｍの出番
+
+
+
+ios,Android各OSバージョンん
+最初の合計250分まで無料
+２つのテストで10分テストがかかると　２０分とした計算
+
+https://aws.amazon.com/jp/device-farm/device-list/
+※DeviceForｍの端末は、
+
+XCUIで使ってみる
+・アプリでビルド
+・XCUIをビルドする
+・Payload.ipaファイルを作る
+
+ビルドパス
+ソース一覧で
+Product > [APPName].ipa
+finderで場所を特定
+
+・上記のipaを
+フォルダにいれzip圧縮後,palyload
+
+・AWS上
+通信状態　3Gやwifiがつながりにくい状態とか設定できる
+メモリ、CPUをどのくらい使っているのかがGUIでみれるようになる
+
+
+~~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：テストを書かない言い訳をさせてくれ
+登壇者：takasekさん
+会社名：
+
+Unit Test書きたくない
+理由：負債になりやすい
+
+UIをswiftyに書く
+開発を効率化するテストのデザインパターン
+
+
+~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+テーマ：io開発でのPull Request とテストカバレッジの連携
+登壇者：star__hoshi　さん
+会社名：clasi株式会社
+
+計測するという話をする
+
+Xcodeにおけるカバレッジを計測する方法
+＝＞カバレッジ
+
+CIでみれるようにしたい
+fastlane scan + fastlane action
+
+fastlanのxcovを利用する
+Dangerというツールがある
+Danger Xcov
+
+DangerはGitLabでも使える！！
+＝＞BitBukcketは？？
+
+DeNaさんも利用している！！
+
+~~^~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
