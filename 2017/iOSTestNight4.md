@@ -1,88 +1,106 @@
 # iOS TestNight #4
 
-## 発表タイトル：「AppiumからXuiTest」
+## 発表タイトル：「AppiumからXCUITestに変え、そのためにSwiftを学び始めた話」
 ### 発表者：根本さん
 ### 会社名/所属：メルカリ
 
-- UI/E2Eテストがメインで作業している
-- ios/Android　50%自動化を目標
-- iosは、Appiumをやめて、XCuiTestに変えた
- - 理由１：・アクセシビリティの付与。アクセシビリティが振られているものが少なかった。付与しながらテストを書いていく事がAppiumには大変
- - 理由２：動作速度と安定性
- 　　xPathを使うと動作が遅くなる
- - XCUIテストを試しに利用したら良かった
-  - １つのレポジトリでAccessibility付与・UIテストが可能
-  -
-  - 実行速度Appiumより早かった
-  - ページ遷移させるときにwaitさせることがある、waitもPageObjectパターンが利用できる
--　jenkins、社内MacからChatでキックできる
-- リリース前のデグレッションテスト50%成功
--　取り組んだが、アプリはリリースされなかった
--　知っておくと便利
-　- 並行実行（Bluepil,pxctest)
-  - snapshot
-- 違うチームで自動化の導入が検討することができた
+- 普段、UI/E2Eテストの自動化をメインで作業している
+ - [用語：E2Eテストとは](https://github.com/KeitaMoromizato/js-study-selenium/blob/master/README.md)
+- 今までは、リリース対象のアプリがリリース前に正しく動いているか,リグレッションテストを手動で行っていた
+  - 繰り返し作業が多い、リリースの回数が多いため一部自動化にしようとの話があり、ios/Android　50%自動化を目標にした
+- 当初は、Android,iOSをどちらもAppiumを利用していたが、  iOSは、AppiumをやめてXCuiTestに変えた
+  - 会場に来ている方に,XCuiTest利用している方がどのくらい聞く
+   - あまりいない。まだ浸透していない様子。
+ - XCuiTestへの変更理由
+   - 変更理由１：Accessibilityが振られている部分が少なかったため。Accessibilityを付与しながらテストを行っていた。これがAppiumには大変
+   - 変更理由２：動作速度と安定性
+     - 開発時期のXcuitest-driverが安定してなかった
+ 　　  - xPathを使うと動作がかなり遅くなる。　
+        - テスト動作が遅いと、テスト結果をみながらソースコードを修正するが、その修正作業にも影響した
+ - XCUITestを試しに利用したら良かった
+    - １つのレポジトリでAccessibility付与・UIテストが可能
+      - レコーディング機能で確認できる
+    - 実行速度Appiumより早かった
+  - ページ遷移させるときにwaitさせないとならないときがあるがあるが
+  　 - PageObjectパターンが利用できる
+- Jenkinsと社内のMacを利用して実行環境用意。チャットから実行。JenkisからXcodeビルドして結果が返ってくるようにCI環境を整えた
+- 現在 リリース前のデグレッションテスト50%成功
+- 上記まで、開発を進めていたが諸事情によりアプリはリリースが中止になった
+  - 開発を通して学んだこと
+    - 知っておくと便利
+      - 並行実行（Bluepil,pxctest)
+      - snapshot
+- 実際してよかったこと
+ - 実際導入にあたり、時間がかかるところ、テストデータの作り方,どこにハードルがあるか把握できた
+- 違うチームで自動化の導入が検討されることがでできたことがよかった
 - 定期的に勉強会をしている
 - 自動化に興味を持ったQAエンジニアが出てきた
 
-## 発表タイトル：「XCUITTestをする時のTips　〜あなたを助けるXXCUITTest〜」
+## 発表タイトル：「XCUITestをする時のTips　〜あなたを助けるXXCUITTest〜」
 ### 発表者　@PooHSunny
 ### 会社名/所属:　リクルートジョブズ
 
-- UIテストのアンケート
- - Appium 3,4人くらい
- - UIテストをしている人 10人未満
+- UIテストについて、会場で挙手アンケート
+ - Appiumを使っている人・・・ 3,4人くらい
+ - UIテストをしている人・・・10人未満
  - UIテストをしたい　ほぼ全員
-- どこまでテストをすべきか
- - スコープ少ない方がいい
-  - スモークテスト
-   - 基本的な導線
-      - a
+- 「現状がUIテストコードもない状態で、iosのUIテストしたいです」となった時に、いったいどこまでテストした方がよいのか？
+- テストコードを書け書くほど、動くから楽しいが、半年後にメンテで大変になる
+  - スコープ少なめがいい
+    - スモークテスト
+      - スモークテスト・・・ハードウェアの業界で使われていた言葉で、マシンをずっと起動させていてモクモク煙がでないかをチェックするという最低限のテストの意味合い
+   - 基本的な導線を確認している
+      - リクルートジョブ社のアプリ「タウンワーク」で利用している
    - 落ちると重大障害になる部分
+      - 申し込みまでの導線
       - 利用規約が潰れている
 - UIを変更したら沢山のテストがこけてしまう。
 　- UIを変更すると 10、２０箇所つぶれてしまうことがある
 - ページオブジェクトパターン
  - テスト対象
-  画面に張り付いたアクション、ボタン、テーブルを別のオブジェクトとする
-   - 要約
-    - publicメソッド＝＞ページが提供するサービス
-    - UnitTest
-    　- 下記のように分割すると変更が楽になる
-     - Module //各ページ共通する部品
-- このテスト何しているかわからない
-　- 半年後なにしているかわからなくなることがある
-  - テストの可読性を上げる
-   - 利用メソッド名を日本語にする
+  画面に張り付いたアクション（ボタン、テーブル等）を別のオブジェクトとする
+   - もともとseleniumのデザインパターンの考えられている
+    - 要約
+    - ディレクトリ
+      - Testは実際のテストシナリオ
+      - screenはページオブジェクトのページ
+      -　Moduleは、screenの中でも共通で使われる部品（ヘッダーなど）
+    - 仮にUIが変更になったとき（ボタンが追加したとき）変更する部分が少なくなるので
+    変更による影響が少なくなる
+- このテスト何しているかわからない箇所がある
+  - 半年後なにしているかわからなくなることがある
+    - テストの可読性を上げる
+      - 利用メソッド名を日本語にする
+      - Given-When-Then意識してみる
+        - Given:テストの前提条件を記載
+        - When: 実際テストするメソッドをたたく
+        - Then:assertする
+          - 昔からJavaを書いている人は,4 phase Testで書いている方もいる
 
-- Given-When-Then意識してみる
-　- 他にも考え方として　4 phase TestNight
-  - 3A
-    Arrange -act -Assert
-- UIテストは自分たちを助けるテストとしよう
-
+- 資料
+https://speakerdeck.com/poohsunny/xcuitestsurushi-falsetips-anatawozhu-keruxcuitesthe
 
 ## 発表タイトル：「Pull Request時の画面差分取得自動化」
 ### 発表者　前田隼輔さん
 ### 会社名/所属:　DENA
 
-- DENA SWET
- SWET　・・・　ソフトウェアエンジニアテスト
-- Dangerでチェックができる
-- fastlaneでsnapshotを利用してスクリーンショットをとる
-- スクリーンショットの差分　imageMagicを利用する
- - compositとidentifyのコマンドを利用する
-- キャプチャ画像をリポジトリで管理する
-　- faslaneのlaneを追加する
-- GitHub　Pull Request
-　 画像のレビューがしやすい
-- .xib/.storyBoard/.stringに変更があった場合
--　差分をみるときにきをつけること
-  - ステータスバー
-  　- 非表示
-  - 自動スクロール
-  　-　目的の要素が表示するまでwaitにする
--
+- 発表者 DENAのSwitチームに所属
+- モバイルアプリの画面の変更した場合に、GitHubでプルリクエストを出した場合に
+ xmlで表示されるためイメージが付かない
+ - そのため、Denaでは、プルリクエスト時のdescriptionに画像を貼り付けて、変更前後をチェックしてる。プルリクエスト時にStroyBoardに画像が張り付いているかDangerで変更前後の画像が張りつけているかチェックしている
+  - Danger・・プルリクエストでチェックするツール
+   - 関係ない画像でも画像が貼り付けられているとみなされるため課題がいくつかあった
+- 解決策
+ - fastlaneでスナップショットの撮影
+ - imageMagic で画像の差分結果を取得
+  - キャプチャ画像の管理用のリポジトリ作成
+   - 差分が合った場合、リポジトリにプルリクエストする
+    - github の2-up,onion skin,swipeの方法が見やすい
+      - プルリクエスト時のDangerのチェック項目を変更
+- 現在、レビューを助けてくれるサービスを開発しているとのこと
+
+- 資料
+[Pull Request時の画面差分取得の自動化](https://www.slideshare.net/ShunsukeMaeda/pull-request-76210799)
 
 -
 
@@ -91,71 +109,86 @@
 ### 会社名/所属:　DeNa
 
 - テストの実行の並列化
--　課題
+-　課題のひとつ
 　-　テストの実行時間
-　　-　30,40,数時間となるケースが有る　
+    - UIテストを書いていくと、どんどんテスト時間がかかっていく
+　　  -　30分,40分,数時間となるケースがある　
 　-　解決方法
-　-　テストのためにビルド
-　　- build for testing
-   - テストを実行
-    -  
- -　実行時間を比較する対象一覧
- - FSSimulatorControler
-    - facebook
-- 実行時間
- - fastlane scan 392秒
- - bluePill　シミュレータ数 165.9秒
+　-　ビルド、テストの実行を別にして並列にする
+    - テストのための実行、成果物をつかってテストする
+    - テストの実行時間を元に並列実行計画  
+    - そもそも実行時間にどのくらいかかるかを計測.
+       - fastlan scan
+       - build-for-test/test-without-building
+         - bluepill
+          - bluepillテストは指定してしたシミュレータにテストケースを分割して実行してくれる。
+           - 例）テストケース１５、シミュレータ数５ ３個ずつテストを実行してくれる
+           - bluePillのテストケースをシミュレータ数で割れる数がよい。
+       - pxctest
+        - pxctest・・・・　複数のシミュレータで同じテストケースをすべてテストを実行する
+          - 例）iphone6s，iphone6なら、それぞれにテストケース15を実行する
 
-- さらに、テストクラス毎に経過時間のバラ付きがある
-　- テストを最適化できる
-  -　ポメラニング機能
-  　ークラス単ににおける実行時間に基づきグルーピング
+- さらに、分割したテスト処理時間のバラ付きがある
+- DENA社は並列実行の最適化をしてくれるサービスを作成している
+ - サービス名：ポメラニアン
+
+- 資料
+[UIテストの実行時間の短縮の方法](http://sssslide.com/www.slideshare.net/tarappo/ui-76205186)
 
 ## 発表タイトル：「StubるMonkingjayを使ったHttpクライアントのテスト」
 ### 発表者　田中賢治さん
 ### 会社名/所属:クラス・メソッド
 
-- 通常のユニットテストの流れ
-- HttpクライアントのテストをするためにStubライブラリ
+- HttpクライアントのテストをするためにStubライブラリを扱う方法
+  - OHHTPStubｓ
+   - 老舗
+   - 情報が沢山ある
+   - 登壇者は,swiftで上手い使い方が見つけられなかった
+  - Monkingjay
+    - swift製
+    - Qiitaに関係する記事「SwiftのQuickでalamofireをつかった非同期テストを書く」があった
+    - 使い方の説明　
+- stubとMockの違い
 
--oHHTPStubｓ
-  - 上手い使い方が見つけられなかった
-- Monkingjay
-  - swift製
-  　- Qitaに関係する記事があった
-- stub:テスト対象のクラスの動作をサポート
-- MOCK：メソッドが呼び出されていることを確認する
--
+- 資料
+[stubるMonkingjayを使ったHttpクライアントのテスト](https://www.slideshare.net/kenjitanaka58/stub-mockingjayhttp)
 
 ## 発表タイトル：「テストコードをアプリケーションコードと同じ階層に置きたい」
-### 発表者 菊池さん　@Kikuchy
+### 発表者 菊池さん
 ### 会社名/所属: 株式会社Diverse
 
-- 関連あるものは同じところにおきたい
+- 関連あるものは同じところにおきたいと開発中に思うことないですか？
 　- 実装とテストコードが離れている
--　同じグループを配置する
- storybardも、testファイル,
- Logerというツールを作成
-  - テストファイルをアプリケーション側からテスト側に整理をしてくれるツール
-  - swiftLintとは相性がわるい issuに上がっている
---
--
+- 同じグループにStorybardも、testファイルもおくと分かりやすいのではないか?
+- テストファイルを新規作成するときにtargetを指定できてますか？
+  - 間違うとテストファイルがどこにあるか探すのが手間になる
+  - テストファイルを整理するLodgerというツールを作成
+    -　コマンドで、
+    - テストファイルをアプリケーション側からテスト側に整理をしてくれるツール
+    - swiftLintとは相性がわるい issuに上がっているが、まだ解決されていない。
 
-## 発表タイトル：「開発で学んだUnitTest５つのTips」
+ - 資料
+ [テストコードをアプリケーションコードと同じ階層に置きたい](https://www.slideshare.net/HiroshiKikuchi/ss-76203123)
+
+
+## 発表タイトル：「開発で学んだUnitTest 5つのTips」
 ### 発表者 広瀬緑
 ### 会社名/所属: リクルートジョブス
 
-- 本日お話すること
--　初心者がUnitTestを書いてみて学んだこと
--　Quickを利用している
-　-　GibenWhenThenを意識する
-　- expectの中身に処理を書かない
-　-　1つのiｔに対して１つのexpectにする
-  -　テスト出来る設計にする
-- プロダクションコードに手が入っているよ。
-- Mockを利用して通信でのレスポンスをテストする
--
--
+- 初心者がテストを初めてかくときのTips
+- Quickの利用が前提
+ -5つのTipsを初心者がUnitTestに取り組みフィードバックを受けた感想を発表
+ - GivenWhenThenを意識する
+   - 何かあたえられたときに、何か処理して、何かを返す
+   - 最初の１，２ヶ月レビューで言われ続けていた
+ - itの中にはexpectを１つのみにする
+   - 処理の内容は、外に出して、何をテストしたいか明確にしてほしいといわれた
+   - 1つのitに対して1つのexpectにする
+   - XcodeのTestNavigatorでどう失敗したかをすぐわかりやすいようにする
+ - テスト出来る設計にする （DIなど）
+ - Mockを利用し通信でのレスポンスをテストする （テストを短く、また堅牢する為）
+
+- 公開資料　なし
 
 ## 発表タイトル：「実践 bulepill」
 ### 発表者: kamiyaさん
@@ -163,47 +196,43 @@
 
 - 前回のiosテストナイトで紹介されたBluePilを試した
 - 試したけど動かない
-　-　case sensitive File Systemsで大文字、小文字が判断できない。
- - テストケースが多いとハング、
+  - 登壇者のMacのファイルシステムがで大文字、小文字が判断できない。
+　- プラグインの影響で動かず、BluePilにプルリクエストを出している
+ - テストケースが多いとハングする
   - 1000テストと動かない
-   NSTestとNSTask
--　fastlan scan
- - - build xxがある
-- fastlan scan 495秒
-- bluepill　
--　waitが挟まるテストの場合 効果がある
- - メモリはあれば、あるほどよい
- - Travice Ciで効果がでた
-  -
-- BluepillのデバッグはObjective-Cで書かれている
+   - NSTestとNSFileの処理が間違っている
+   - コメントアウト動く
+- build without Testingとうbuildコマンドは、fastlane scanにbulid for Testingパラメータがあるので簡単に作れる
+- fastlaneとscanとを組み合わせる時に使ってみて
+- 実際にテストをしてみた
+- XCtest、KIFを使ったテスト
+  - BluePilを使った結果
+   - UIテストでマッチを使ったテストが分散された印象をうけた
+   - waitが挟まるテストの場合 効果がある
+   - メモリは15Gくらいつかう
+     - メモリはあれば、あるほどよい
+     - Travice CIで動かす
+  - BluepillのソースはObjective-Cで書かれている
+
+- 資料
+[実践 bulepill]
+(https://speakerdeck.com/nolili/ios-test-night-number-4)
 
 ## 発表タイトル：「テストを書かない言い訳をした結果」
 ### 発表者 takasekさん
 -  テスト書きたくない理由
  - テストファイルへの距離が遠い
  - テスト負債になりやすい
+
 - テストファイルへの距離が遠いの解決
- - ファイルをならべておく
-   - レガシーコードにも書かれている
-　-　Xcode source Editeor Extensionもつかいもんにならんらい
--　appliescript + XcdeBehabior を利用して
-　XcodeBehabiorのカスタムでショート・カットキー
+   - ファイルを並べる
+   　- 本日の菊池さんの発表で良くなるのではないか。
+   - レガシーコードについた本にも記載あり
+   - Xcodeのファイルを行き来するショート・カットキーがない
+   - ツールを作った
+    - appliescript + Xcde Custom Behabior を利用した
+    　- ファイルを跨ぐ操作が不可能
+       - 有償アプリがあるが、配布まで考えるとハードルが高い
 
-
-## 資料
-http://dev.classmethod.jp/smartphone/iphone/event-report-ios-test-night-4/?utm_source=dlvr.it&utm_medium=twitter
-
-https://speakerdeck.com/takasek/tesutowoshu-kanaiyan-iyi-wositajie-guo-wwwwwww
-
-https://www.slideshare.net/mobile/HiroshiKikuchi/ss-76203123
-
-https://www.slideshare.net/mobile/kenjitanaka58/stub-mockingjayhttp
-
-GUI的に遠いという話が割と出たりするけど、⌘ + Shift + oでジャンプすればええやんと思ってしまう派
-#ios_test_night
-
-https://speakerdeck.com/poohsunny/xcuitestsurushi-falsetips-anatawozhu-keruxcuitesthe
-
-https://www.slideshare.net/mobile/ShunsukeMaeda/pull-request-76210799
-
-https://www.slideshare.net/mobile/tarappo/ui-76205186
+- 資料
+(テストを書かない言い訳をした結果)[https://speakerdeck.com/takasek/tesutowoshu-kanaiyan-iyi-wositajie-guo-wwwwwww]
