@@ -140,7 +140,7 @@ https://speakerdeck.com/poohsunny/xcuitestsurushi-falsetips-anatawozhu-keruxcuit
 ### 会社名/所属:クラス・メソッド
 
 - HttpクライアントのテストをするためにStubライブラリを扱う方法
-  - OHHTPStubｓ
+  - OHHTPStubs
    - 老舗
    - 情報が沢山ある
    - 登壇者は,swiftで上手い使い方が見つけられなかった
