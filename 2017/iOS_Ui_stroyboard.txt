@@ -1,0 +1,190 @@
+# ✰iOS_Ui実装勉強会 第１回目
+## 発表タイトル:
+### 発表者：
+### 会社名/所属：SanSan株式会社
+
+- StoryBoardが嫌い派が多数
+- Eight,SunSunアプリは積極的にStoryBoardを利用している。
+  - 積極的に使う理由
+    1. Guiなので、自分以外が見てわかりやすい
+    1. デザイナーさんと細かな調整をするときにしやすい
+    1. アップルが敷いたレールにのる安心感がある
+      - これまでの経験から、アップルが新しい仕様やデザインがでてきたときに、アップルの仕様に沿っていないと、工数が大きくかかる可能性があるため
+    1. 年々進化している　StackViewやStoryBoardRefefenceが出てきて使いやすくなった。
+    1. 冗長なAuotLayoutをコードで書かなくても良い。
+  - ツラミ
+    1.  コンフリクトすると修正しにくい。
+    1.  レビューがしにくい。
+    1.  Stringで加味セクメンとIJTまわり文字列で書かないとならない??
+
+## 発表タイトル　No Story noBoard
+### 発表者：　ほしのぶさん
+### 会社名/所属：
+
+-　発表者はStroyBoardが嫌い
+ - Viewが増えると制約が爆発的に増えるのと制約を探しづらい
+ - iuo（Implicitly Unwrapped Optional）が多く、ライフサイクルをよく理解して利用しないとならない。 -> swiftyではない
+
+- AutoLayoutを使う人に便利なライブラリがる
+ - pureLayout
+   - pureLayoutを使うと　AutoLayoutの制約を簡潔に書ける
+ - snapkit
+   - swiftの構文を最大限引き出してくれる
+   - 資料が充実している
+
+- Autolayoutを使わずにコードでUを組む場合の注意
+ 1. UiViewとUIViewCOntrollerのライフサイクルを理解
+   - 注目してほしいのは、LayoutRunloopのNeed Layout
+      - 自分の子ビューのframeやtransformが変更された場合親もよばれてしまうので、子ビューのframeやtransformは親ビューで変更する
+ - レイアウトを設定するプロパティ-を理解する
+  - centerが指しているのはレイヤーのアンカーポイント  
+ - サードパーティのライブラリを理解する
+- 作者は、NotAutoLayoutというライブラリを作った
+  - frameを直接設定しない。スライドにあったCenterやBounds.sizeを設定しているのでスライドで例であったおかしな挙動をしない
+  - 万能ではない、文法が書きづらいが、次回バージョンで4.0で良くなる予定
+
+
+- 作者のQitaのサイト:
+ - タイトル:まだStoryBoardで消耗しているの？発表、Qitaで発表
+http://qiita.com/lovee/items/acfc9d0f1ffa7207b38b
+
+
+
+-　組み込み
+<script async class="speakerdeck-embed" data-id="80ee084facd8451bb581fc461dfeafab" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+- link
+https://speakerdeck.com/lovee/no-story-no-board
+
+## 発表タイトル: StroyBoardいいよ
+### 発表者：林さん
+### 会社名/所属：bitFlyer
+
+- １週間に１度更新しないとならない。
+- アプリ開発難しい
+ - 仕様もれ、KPIが伸びない
+- 画面遷移　たまに変更
+ - 画面レイアウト --変更が多良い
+-  - UIコンポーネント
+    - スタイル
+- StoryBoardは、画面遷移、画面レイアウト、UIコンポーネント
+が守備範囲で、範囲を超えるとつらくなる
+
+- StoryBoardで色の設定をする。UIコンポーネントをStoryBoard
+まで作ると　画面A画面bで、スペースなど異なってしまうことがある
+
+-StoryBoardはカジュアルにつくる
+ - Storyboardと相性のよいUIコンポーネントを作る
+
+ - intrinsicContentsize
+ -　@IBinspectable
+ - hitTestのオーバーライド
+
+- self -sizing cell
+
+ - UIKitとライフサイクルを理解すると下記が出来る
+ ベースはStoryBoardでかいて
+ - Autolayoutはコード、
+  - layoutSubview
+
+- アプリの改善には、
+ Storyboardのスピードが必要
+
+- ios DC、が９月から始まる
+-
+
+## 発表タイトル NavigationBarのアニメーションと無限循環PageViewContorlloerを両立するときのStoryBoard構成
+### 発表者：Kboyさん　Fujikawaさん
+### 会社名/所属：
+
+-　News Digestというアプリを作っている
+-　作りたかったUIとスクロールしたらナビゲーションバーと
+- タブは無限ループする方法
+-
+NavigationControllerのナビゲーションバーは
+アニメーションの調整ができないため☓
+
+そこで
+ContainaerViewの中にtableViewContlloerを配置して循環させる
+
+循環ライブラリ
+
+ まとめ
+ ContainaerViewにライブラリを入れた
+
+
+## 発表タイトル：：Nibとセキュリティ
+### 発表者：Bati
+### 会社名/所属：
+
+- CodeでUI派です。
+- Nibはセキュリティ的に危ない
+ - IPAfileって実は回答できる
+  - LineのIPAを解凍してみる
+   - Ituneｓをダウンロードしているアプリで
+    右クリック＝＞「finder」で表示する
+    　- IPAファイルが見れる
+     - このアプリケーションで開くとして
+      - アーカイブユーティリティを選択
+       - payloadのパッケージ尚内容開く
+        - アイコン、素材がみれてしまう。
+         - ロックされているがnibファイルが見える
+         - bundleファイルは開ける。素材がみえてしまう。
+
+  - nibファイルを開こうとすると
+   - nibアンロッカーというツールがある。
+    - 昔はみえていた
+ - - だれかが頑張れば見えてしまうかも？？
+
+- という理由もあり、再利用しやすさから
+ - コード で書いている
+
+-
+## 発表タイトル：
+### 発表者：酒井さん
+### 会社名/所属：
+
+-
+-
+-
+-
+-
+
+## 発表タイトル
+### 発表者：
+### 会社名/所属：
+
+-
+-
+-
+-
+-
+
+## 発表タイトル
+### 発表者：
+### 会社名/所属：
+
+-
+-
+-
+-
+-
+
+## 発表タイトル
+### 発表者：
+### 会社名/所属：
+
+-
+-
+-
+-
+-
+
+## 発表タイトル
+### 発表者：
+### 会社名/所属：
+
+-
+-
+-
+-
+-
