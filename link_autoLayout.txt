@@ -1,0 +1,26 @@
+
+・VFL
+https://stackoverflow.com/questions/38600240/swift-vfl-to-pin-an-item-a-fixed-distance-from-superviews-bottom-margin
+・VFL本
+https://books.google.co.jp/books?id=0ROyBgAAQBAJ&pg=PA287&lpg=PA287&dq=swift+VFL+bottom+from&source=bl&ots=722gEoIc0F&sig=6iNmHBgiaEBvLt40Sy9S9AMRA_U&hl=ja&sa=X&ved=0ahUKEwiIhJ3Cup3WAhUDmJQKHQtxD_g4FBDoAQg4MAI#v=onepage&q=swift%20VFL%20bottom%20from&f=false
+
+
+・NSLayoutConstrain
+http://tiro105.hateblo.jp/entry/2015/04/14/144056
+
+
+・x,y,高さ、幅指定
+http://grachro.hatenablog.com/entry/20140923/1411468076
+http://noknow.info/ja/blog/2016/20160130203000
+
+
+・親Viewの高さの半分
+view.addConstraint(NSLayoutConstraint(item: sampleView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 0.5, constant: 0))
+
+上記のURL
+http://swift-studying.com/blog/swift/?p=614
+
+・NSLayoutConstlain
+すべてのViewに設定
+http://egg-is-world.com/2015/01/06/auto-layout-space/
+
